@@ -33,7 +33,7 @@ console.log(factorial(5));
 
 
 //fourth question count the number of one
-
+//first approch
 function Count_one(arr)
 {
 l=arr.length;
@@ -42,3 +42,43 @@ return((l-t)-1);
 
 }
 console.log(Count_one(arr = [0,0,0,0,1,1,1,1,1,1,1]));
+
+//second approch 
+
+const arr=[0,0,0,1,1,1,1,1,1,1];
+function Count_one(arr)
+{
+    l=arr.length;
+    if(arr[0]==1){
+      return arr.length;
+       
+    }
+    if(arr[l-1]==0)
+    {return 0;}
+    let start=0;
+    
+   let end=l-1;
+   while (start<=end){
+ 
+        // Find the mid index
+        let mid=Math.floor((start + end)/2);
+  
+        // If element is present at mid, return True
+        if (arr[mid]===1) {
+        if(arr[mid-1]===0){return (l-mid);}
+        else{end=mid-1;}
+         }
+       else{
+       if(arr[mid+1]===1){return (l-mid-1);}
+       else{
+       start=mid+1;
+       }
+       }
+ 
+   }
+  
+    return 0;
+}
+console.log(Count_one(arr));
+    
+
