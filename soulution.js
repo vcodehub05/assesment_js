@@ -60,10 +60,9 @@ function Count_one(arr)
    let end=l-1;
    while (start<=end){
  
-        // Find the mid index
+     
         let mid=Math.floor((start + end)/2);
   
-        // If element is present at mid, return True
         if (arr[mid]===1) {
         if(arr[mid-1]===0){return (l-mid);}
         else{end=mid-1;}
